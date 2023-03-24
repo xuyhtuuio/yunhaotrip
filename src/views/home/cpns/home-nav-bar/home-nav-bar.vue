@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="nav-bar">
-    <div class="title">欢迎光临! 云皓旅店</div>
+    <div class="title">欢迎光临! 云皓旅</div>
   </div>
   <div class="picture">
     <img class="inner_img" :src="Props.src">
