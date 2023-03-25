@@ -152,9 +152,9 @@ const rangeAboutDay = computed(() => {
     flex-direction: column;
 
     .intoWorld {
-      position: relative;
-      right: 23px;
-      font-size: 10px;
+      //position: relative;
+      //right: 23px;
+      font-size: 13px;
       color: #8B97A2FF;
     }
   }
@@ -169,9 +169,9 @@ const rangeAboutDay = computed(() => {
     flex-direction: column;
 
     .outWorld {
-      position: relative;
-      right: 23px;
-      font-size: 10px;
+      //position: relative;
+      //right: 23px;
+      font-size: 13px;
       color: #8B97A2FF;
 
       .dataChooseWhenOut {
@@ -180,8 +180,6 @@ const rangeAboutDay = computed(() => {
         }
       }
     }
-
-
   }
 
   .date {

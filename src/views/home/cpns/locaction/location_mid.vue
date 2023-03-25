@@ -3,7 +3,7 @@
     <div class="outer">
       <div class="city"><span class="innerLocation">位置: </span>山东</div>
       <div class="MyLocation">
-        <span class="text">我的位置</span>
+        <span class="text" @click="getLocation">我的位置</span>
         <img class="innerImg" :src="Props.src">
       </div>
     </div>
@@ -18,6 +18,18 @@ const Props = defineProps({
     type: String
   }
 })
+
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(res => {
+        console.log("获取成功", res)
+      }, err => {
+        console.log("获取失败", err)
+      },
+      {
+        timeout: 3000
+      });
+}
 </script>
 
 <style lang="less" scoped>
