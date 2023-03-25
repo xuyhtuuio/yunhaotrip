@@ -4,6 +4,7 @@ const useCities = defineStore("city", {
     state() {
         return {
             cities: [],
+
         }
     },
     actions : {

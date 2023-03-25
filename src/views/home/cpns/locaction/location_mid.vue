@@ -1,7 +1,7 @@
 <template>
   <div class="mid_location">
     <div class="outer">
-      <div class="city"><span class="innerLocation">位置: </span>山东</div>
+      <div class="city" @click="changetoCity"><span class="innerLocation">位置: </span>山东</div>
       <div class="MyLocation">
         <span class="text" @click="getLocation">我的位置</span>
         <img class="innerImg" :src="Props.src">
@@ -12,7 +12,10 @@
 
 <script setup>
 import {defineProps} from "vue"
+import {useRouter} from "vue-router"
 
+
+const router = useRouter();
 const Props = defineProps({
   src: {
     type: String
@@ -29,6 +32,13 @@ function getLocation() {
       {
         timeout: 3000
       });
+}
+
+
+function changetoCity() {
+  router.push({
+    path: "/city"
+  })
 }
 </script>
 

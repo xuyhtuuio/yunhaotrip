@@ -11,6 +11,11 @@ import {ref} from "vue";
 import HomeNavBar from "./cpns/home-nav-bar/home-nav-bar.vue";
 import Location_mid from "./cpns/locaction/location_mid.vue";
 import Home_search from "./cpns/home-date-range/home_date_range.vue";
+import useisHidden from "../../store/modeles/hideBar.js";
+
+let useisHidden1 = useisHidden();
+useisHidden1.changeStateToAppear()
+
 </script>
 
 <style lang="less" scoped>
