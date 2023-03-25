@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="date">
-          共{{ rangeAboutDay }}晚
+          共<span class="innerWorld">{{ rangeAboutDay }}</span>晚
         </div>
         <div class="outHotel">
           <div class="outWorld">
@@ -208,5 +208,11 @@ const rangeAboutDay = computed(() => {
     font-size: 12px;
     font-style: italic;
   }
+}
+
+.innerWorld {
+  font-size: 25px;
+  font-style: italic;
+  font-stretch: ultra-condensed;
 }
 </style>
