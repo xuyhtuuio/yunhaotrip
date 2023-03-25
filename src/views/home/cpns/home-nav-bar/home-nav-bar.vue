@@ -5,6 +5,7 @@
   </div>
   <div class="picture">
     <img class="inner_img" :src="Props.src">
+
   </div>
 </div>
 </template>
