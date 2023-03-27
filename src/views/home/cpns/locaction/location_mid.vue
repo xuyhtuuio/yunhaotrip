@@ -1,7 +1,7 @@
 <template>
   <div class="mid_location">
     <div class="outer">
-      <div class="city" @click="changetoCity"><span class="innerLocation">位置: </span>山东</div>
+      <div class="city" @click="changetoCity"><span class="innerLocation"></span>{{ cityStore.YourChooseCity }}</div>
       <div class="MyLocation">
         <span class="text" @click="getLocation">我的位置</span>
         <img class="innerImg" :src="Props.src">
@@ -13,6 +13,7 @@
 <script setup>
 import {defineProps} from "vue"
 import {useRouter} from "vue-router"
+import useCities from "../../../../store/modeles/cities/InnerCities.js";
 
 
 const router = useRouter();
@@ -21,7 +22,7 @@ const Props = defineProps({
     type: String
   }
 })
-
+let cityStore = useCities();
 
 function getLocation() {
   navigator.geolocation.getCurrentPosition(res => {

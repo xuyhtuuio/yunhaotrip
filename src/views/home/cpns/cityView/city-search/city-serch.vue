@@ -36,7 +36,7 @@ function jumpToHome() {
 
 <style lang="less" scoped>
 .search {
-
+  --van-search-input-height: 46px;
 }
 
 
