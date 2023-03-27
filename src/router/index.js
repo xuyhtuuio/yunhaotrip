@@ -1,11 +1,11 @@
 import {createRouter, createWebHashHistory} from "vue-router"
 
 const router = createRouter({
-    history : createWebHashHistory(),
+    history: createWebHashHistory(),
 
     routes: [
         {
-            path : "/",
+            path: "/",
             redirect: "/home"
         },
         {
@@ -29,11 +29,26 @@ const router = createRouter({
         },
         {
             path: "/city",
-            component: () => import("../views/home/cpns/locaction/cityView/city.vue"),
+            redirect: "/city/chinaCity"
+        },
+        {
+            path: "/city",
+            component: () => import("../views/home/cpns/cityView/city.vue"),
             meta: {
                 hideBar: false,
-            }
-        }
+            },
+            children: [
+                {
+                    path: "chinaCity",
+                    component: () => import("../views/home/cpns/cityView/city-content/Inchina/china.vue")
+                },
+                {
+                    path: "outChinaCity",
+                    component: () => import("../views/home/cpns/cityView/city-content/outchina/outChina.vue")
+                }
+            ]
+        },
+
     ]
 })
 

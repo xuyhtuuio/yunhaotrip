@@ -189,24 +189,28 @@ const rangeAboutDay = computed(() => {
 
 .price_people {
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
   border-bottom: 0.5px solid rgba(233, 234, 246, 0.71);
   padding-bottom: 12px;
 
   .price {
-    position: relative;
-    left: 40px;
-    color: #54C9D0FF;
-    font-size: 12px;
+    //position: relative;
+    //left: 40px;
+    color: darkgray;
+    font-size: 15px;
     font-style: italic;
+    flex: auto;
+    text-align: center;
   }
 
   .people {
-    position: relative;
-    right: 65px;
-    color: #54C9D0FF;
-    font-size: 12px;
+    //position: relative;
+    //right: 65px;
+    color: darkgray;
+    font-size: 15px;
     font-style: italic;
+    flex: auto;
+    text-align: center;
   }
 }
 
