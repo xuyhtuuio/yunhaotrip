@@ -6,11 +6,14 @@
           <div class="intoWorld">入住</div>
           <div class="dataChooseWhenInto">
             <van-cell :title="titleInHotel" :value="dateInHotel" @click="show = true"/>
-            <van-calendar v-model:show="show" type="range" @confirm="onConfirm" ref="calendar"/>
+            <van-calendar v-model:show="show" type="range" @confirm="onConfirm" ref="calendar"
+                          :max-range="3"
+                          :round="false"
+            />
           </div>
         </div>
         <div class="date">
-          共<span class="innerWorld">{{ rangeAboutDay }}</span>晚
+          共<span class="innerWorld">{{ rangeDate }}</span>晚
         </div>
         <div class="outHotel">
           <div class="outWorld">
@@ -32,31 +35,44 @@
 
 <script setup>
 import {ref, computed} from 'vue';
+import format_date from "../../../../utils/date/format_date.js";
+import {computeRangeDate} from "../../../../utils/date/comput_range_of_date.js";
 
 const dateInHotel = ref('');
 const dateOutHotel = ref("")
-const titleInHotel = ref("03月25日");
-const titleOutHotel = ref("03月30日");
+const titleInHotel = ref("");
+const titleOutHotel = ref("");
 const show = ref(false);
 const calendar = ref(null)
-const dateObj = {
-  1: 31,
-  2: 28,
-  3: 31,
-  4: 30,
-  5: 31,
-  6: 30,
-  7: 31,
-  8: 31,
-  9: 30,
-  10: 31,
-  11: 30,
-  12: 31,
-}
-let StartMonth = ref(0)
-let StartDay = ref(0)
-let EndMonth = ref(0)
-let EndDay = ref(0)
+
+
+const nowDate = ref(new Date());
+const nextOneDate = ref(nowDate.value.setDate(nowDate.value.getDate() + 1))
+
+const currentDate = format_date(nowDate.value)
+const nextDate = format_date(nowDate.value.setDate(nowDate.value.getDate() + 1))
+
+titleInHotel.value = currentDate
+titleOutHotel.value = nextDate
+//
+// const dateObj = {
+//   1: 31,
+//   2: 28,
+//   3: 31,
+//   4: 30,
+//   5: 31,
+//   6: 30,
+//   7: 31,
+//   8: 31,
+//   9: 30,
+//   10: 31,
+//   11: 30,
+//   12: 31,
+// }
+// let StartMonth = ref(0)
+// let StartDay = ref(0)
+// let EndMonth = ref(0)
+// let EndDay = ref(0)
 
 const formatDate = (date) => `${date.getMonth() + 1}/${date.getDate()}`;
 
@@ -83,42 +99,37 @@ function changeFormat(dateArr) {
   return result.join("")
 }
 
+const rangeDate = computed(() => {
+  return computeRangeDate(nowDate.value, nextOneDate.value)
+})
 const onConfirm = (values) => {
   const [start, end] = values;
+  nowDate.value = end
+  nextOneDate.value = start
 
-  StartMonth.value = start.getMonth() + 1
-  StartDay.value = start.getDate()
-  EndMonth.value = end.getMonth() + 1
-  EndDay.value = end.getDate()
-
-
-  show.value = false;
-  const startDate = formatDate(start).split("/")
-  const endDate = formatDate(end).split("/")
-  dateInHotel.value = changeFormat(startDate)
-  titleInHotel.value = changeFormat(startDate)
-  dateOutHotel.value = changeFormat(endDate)
-  titleOutHotel.value = changeFormat(endDate)
+  titleInHotel.value = format_date(start)
+  titleOutHotel.value = format_date(end)
+  show.value = false
 };
 
 
-const rangeAboutDay = computed(() => {
-  let range = 0
-  if (StartDay.value > EndDay.value) {
-    for (let a in dateObj) {
-      if (a == StartMonth.value) {
-        range = dateObj[a] - StartDay.value + EndDay.value
-      }
-    }
-    return range
-  } else {
-    if (EndDay.value === StartDay.value) {
-      return 5
-    } else {
-      return EndDay.value - StartDay.value
-    }
-  }
-})
+// const rangeAboutDay = computed(() => {
+//   let range = 0
+//   if (StartDay.value > EndDay.value) {
+//     for (let a in dateObj) {
+//       if (a == StartMonth.value) {
+//         range = dateObj[a] - StartDay.value + EndDay.value
+//       }
+//     }
+//     return range
+//   } else {
+//     if (EndDay.value === StartDay.value) {
+//       return 1
+//     } else {
+//       return EndDay.value - StartDay.value
+//     }
+//   }
+// })
 </script>
 
 <style lang="less" scoped>

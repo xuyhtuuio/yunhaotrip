@@ -1,9 +1,12 @@
 <template>
   <div class="city">
-    <van-sticky>
+    <div class="head">
       <city-choose-and-search/>
-    </van-sticky>
-    <router-view/>
+    </div>
+    <div class="content">
+      <router-view/>
+    </div>
+
   </div>
 </template>
 
@@ -27,4 +30,19 @@ isHidden.changeStateToHidden();
 
 <style lang="less" scoped>
 
+
+.head {
+  position: relative;
+  z-index: 10;
+}
+
+.content {
+  height: calc(100vh - 110px);
+  overflow-y: auto;
+
+}
+
+:deep(.van-index-anchor--sticky) {
+
+}
 </style>
