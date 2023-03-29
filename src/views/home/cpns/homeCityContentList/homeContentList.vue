@@ -4,7 +4,7 @@
     <button @click="emitPage">点我请求不同的数据</button>
     <div class="content">
       <template v-for="(item, index) in citiesStore.houseList" :key="item.data.houseId">
-        {{ item.houseName }}
+        {{ item.date.houseName }}
         <!--        <Nine v-if="item.discoveryContentType === 9" :intro="item.houseName"></Nine>-->
         <!--        <Three v-else :intro="item.houseName"></Three>-->
       </template>
