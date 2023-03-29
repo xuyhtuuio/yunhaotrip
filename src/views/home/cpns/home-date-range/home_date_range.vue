@@ -29,6 +29,7 @@
         <div class="price">价格不限</div>
         <div class="people">人数不限</div>
       </div>
+      <div class="section keyword bottom-gray-line">关键字/位置/民宿名</div>
     </div>
   </div>
 </template>
@@ -47,12 +48,11 @@ const calendar = ref(null)
 
 
 const nowDate = ref(new Date());
-const nextOneDate = ref(nowDate.value.setDate(nowDate.value.getDate() + 1))
-
+let nextOneDate = ref(new Date())
 const currentDate = format_date(nowDate.value)
-const nextDate = format_date(nowDate.value.setDate(nowDate.value.getDate() + 1))
-
 titleInHotel.value = currentDate
+nextOneDate = ref(nextOneDate.value.setDate(nowDate.value.getDate() + 1))
+const nextDate = format_date(nextOneDate.value)
 titleOutHotel.value = nextDate
 //
 // const dateObj = {
@@ -100,12 +100,14 @@ function changeFormat(dateArr) {
 }
 
 const rangeDate = computed(() => {
-  return computeRangeDate(nowDate.value, nextOneDate.value)
+  console.log(nowDate.value, nextOneDate.value)
+  return computeRangeDate(nextOneDate.value, nowDate.value)
 })
+
 const onConfirm = (values) => {
   const [start, end] = values;
-  nowDate.value = end
-  nextOneDate.value = start
+  nowDate.value = start
+  nextOneDate.value = end
 
   titleInHotel.value = format_date(start)
   titleOutHotel.value = format_date(end)
@@ -159,7 +161,7 @@ const onConfirm = (values) => {
   .intoHotel {
     //flex: auto;
     justify-content: space-between;
-    display: flex;
+    //display: flex;
     flex-direction: column;
 
     .intoWorld {
@@ -200,18 +202,19 @@ const onConfirm = (values) => {
 
 .price_people {
   display: flex;
-  //justify-content: space-between;
+  justify-content: space-around;
   border-bottom: 0.5px solid rgba(233, 234, 246, 0.71);
   padding-bottom: 12px;
-
+  //margin: 0px -40px;
   .price {
     //position: relative;
     //left: 40px;
     color: darkgray;
     font-size: 15px;
     font-style: italic;
-    flex: auto;
+    //flex: auto;
     text-align: center;
+    margin-right: 75px;
   }
 
   .people {
@@ -220,7 +223,7 @@ const onConfirm = (values) => {
     color: darkgray;
     font-size: 15px;
     font-style: italic;
-    flex: auto;
+    //flex: auto;
     text-align: center;
   }
 }
@@ -229,5 +232,44 @@ const onConfirm = (values) => {
   font-size: 25px;
   font-style: italic;
   font-stretch: ultra-condensed;
+}
+
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 11vw;
+  color: #999;
+  height: 44px;
+
+  .start {
+    flex: 1;
+    display: flex;
+    height: 44px;
+    align-items: center;
+  }
+
+  .end {
+    min-width: 30%;
+    padding-left: 20px;
+  }
+
+  .date {
+    display: flex;
+    flex-direction: column;
+
+    .tip {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .time {
+      margin-top: 3px;
+      color: #333;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
 }
 </style>

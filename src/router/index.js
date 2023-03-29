@@ -48,6 +48,10 @@ const router = createRouter({
                 }
             ]
         },
+        {
+            path: "/search",
+            component: () => import("../views/home/cpns/Home-search-view/home-searchview.vue")
+        }
 
     ]
 })

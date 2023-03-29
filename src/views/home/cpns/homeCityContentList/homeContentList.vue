@@ -1,0 +1,63 @@
+<template>
+  <div class="HomeContent">
+    <div class="title">热门精选</div>
+    <button @click="emitPage">点我请求不同的数据</button>
+    <div class="content">
+      <template v-for="(item, index) in citiesStore.houseList" :key="item.data.houseId">
+        <div class="houseItem">
+          <div v-if="item.discoveryContentType === 9">
+            <div class="picture"></div>
+            <div class="introContent">
+              <div class="score"></div>
+              <div class="intro"></div>
+              <div class="priceAndScore"></div>
+            </div>
+          </div>
+          <div v-else>
+            <div class="introContent">
+              <div class="location"></div>
+              <div class="intro"></div>
+              <div class="score"></div>
+            </div>
+          </div>
+        </div>
+        {{ item.data.houseName }}
+      </template>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import useCitiesContent from "../../../../store/modeles/citiesContent/houseList.js";
+
+const citiesStore = useCitiesContent()
+
+function emitPage() {
+  citiesStore.page++
+  citiesStore.getHouseContentList().then(finish => {
+    console.log(finish)
+  })
+}
+
+
+</script>
+
+<style lang="less" scoped>
+.HomeContent {
+  width: 300px;
+  height: 300px;
+  box-sizing: border-box;
+  margin-top: 10px;
+
+  .title {
+    font-size: 20px;
+    padding-left: 35px;
+  }
+
+  .content {
+    margin-top: 15px;
+    padding-left: 10px;
+  }
+
+}
+</style>

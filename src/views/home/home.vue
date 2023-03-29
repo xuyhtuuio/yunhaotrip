@@ -3,6 +3,9 @@
     <HomeNavBar src="./src/assets/img/home/banner.png"/>
     <location_mid src="./src/assets/img/home/icon_location.png"/>
     <home_search/>
+    <HotSuggestsAndSearch/>
+    <categories/>
+    <home-content-list/>
   </div>
 </template>
 
@@ -13,6 +16,9 @@ import Location_mid from "./cpns/locaction/location_mid.vue";
 import Home_search from "./cpns/home-date-range/home_date_range.vue";
 import useisHidden from "../../store/modeles/hideBar.js";
 import MyAxios from "../../services/requset/MyAxios.js";
+import HotSuggestsAndSearch from "./cpns/homeHotSuggestsAndSearch/HotSuggestsAndSearch.vue";
+import Categories from "./cpns/categories/categories.vue";
+import HomeContentList from "./cpns/homeCityContentList/homeContentList.vue";
 
 let useisHidden1 = useisHidden();
 useisHidden1.changeStateToAppear()
