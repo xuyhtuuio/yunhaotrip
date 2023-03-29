@@ -6,7 +6,7 @@ const useCitiesContent = defineStore("citiesContent", {
     state() {
         return {
             houseList: [],
-            page: 0,
+            page: 1,
 
         }
     },

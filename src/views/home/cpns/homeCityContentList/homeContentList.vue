@@ -1,12 +1,13 @@
 <template>
   <div class="HomeContent">
     <div class="title">热门精选</div>
-    <button @click="emitPage">点我请求不同的数据</button>
+<!--    <button @click="emitPage">点我请求不同的数据</button>-->
     <div class="content">
       <template v-for="(item, index) in citiesStore.houseList" :key="item.data.houseId">
-        {{ item.date.houseName }}
-        <!--        <Nine v-if="item.discoveryContentType === 9" :intro="item.houseName"></Nine>-->
-        <!--        <Three v-else :intro="item.houseName"></Three>-->
+        <Nine v-if="item.discoveryContentType === 9"
+              :Data="item.data"
+        />
+        <Three v-else :Data="item.data" src="./src/assets/img/home/location.png"/>
       </template>
     </div>
   </div>
@@ -21,18 +22,19 @@ const citiesStore = useCitiesContent()
 
 function emitPage() {
   citiesStore.page++
-  citiesStore.getHouseContentList().then(finish => {
-    console.log(finish)
-  })
+
 }
 
+citiesStore.getHouseContentList().then(finish => {
+  console.log(finish)
+})
 
 </script>
 
 <style lang="less" scoped>
 .HomeContent {
-  width: 300px;
-  height: 300px;
+  //width: 300px;
+  //height: 300px;
   box-sizing: border-box;
   margin-top: 10px;
 
@@ -44,6 +46,8 @@ function emitPage() {
   .content {
     margin-top: 15px;
     padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
   }
 
 }
