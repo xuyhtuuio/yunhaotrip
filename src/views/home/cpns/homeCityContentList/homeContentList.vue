@@ -4,23 +4,6 @@
     <button @click="emitPage">点我请求不同的数据</button>
     <div class="content">
       <template v-for="(item, index) in citiesStore.houseList" :key="item.data.houseId">
-        <div class="houseItem">
-          <div v-if="item.discoveryContentType === 9">
-            <div class="picture"></div>
-            <div class="introContent">
-              <div class="score"></div>
-              <div class="intro"></div>
-              <div class="priceAndScore"></div>
-            </div>
-          </div>
-          <div v-else>
-            <div class="introContent">
-              <div class="location"></div>
-              <div class="intro"></div>
-              <div class="score"></div>
-            </div>
-          </div>
-        </div>
         {{ item.data.houseName }}
       </template>
     </div>
