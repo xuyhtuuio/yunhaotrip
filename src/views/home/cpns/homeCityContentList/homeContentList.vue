@@ -4,7 +4,9 @@
     <button @click="emitPage">点我请求不同的数据</button>
     <div class="content">
       <template v-for="(item, index) in citiesStore.houseList" :key="item.data.houseId">
-        {{ item.data.houseName }}
+        {{ item.houseName }}
+        <!--        <Nine v-if="item.discoveryContentType === 9" :intro="item.houseName"></Nine>-->
+        <!--        <Three v-else :intro="item.houseName"></Three>-->
       </template>
     </div>
   </div>
@@ -12,6 +14,8 @@
 
 <script setup>
 import useCitiesContent from "../../../../store/modeles/citiesContent/houseList.js";
+import Nine from "../../../../components/TypeHouseItem/typeOfNIne/Nine.vue";
+import Three from "../../../../components/TypeHouseItem/typeOfThree/Three.vue";
 
 const citiesStore = useCitiesContent()
 
