@@ -5,6 +5,19 @@
     <home_search/>
     <HotSuggestsAndSearch/>
     <categories/>
+    <div class="world" v-if="hideSearch.isHidden">
+      <van-search
+          v-model="value"
+          show-action
+          label="地址"
+          placeholder="请输入搜索关键词"
+          @search="onSearch"
+      >
+        <template #action>
+          <div @click="onClickButton">搜索</div>
+        </template>
+      </van-search>
+    </div>
     <home-content-list/>
   </div>
 </template>
@@ -19,14 +32,25 @@ import MyAxios from "../../services/requset/MyAxios.js";
 import HotSuggestsAndSearch from "./cpns/homeHotSuggestsAndSearch/HotSuggestsAndSearch.vue";
 import Categories from "./cpns/categories/categories.vue";
 import HomeContentList from "./cpns/homeCityContentList/homeContentList.vue";
+import usehideSearch from "../../store/hideSearch.js";
+import {Toast} from "vant";
 
 let useisHidden1 = useisHidden();
+let hideSearch = usehideSearch()
 useisHidden1.changeStateToAppear()
-
+const value = ref('');
+const onSearch = (val) => Toast(val);
+const onClickButton = () => Toast(value.value);
 
 </script>
 
 <style lang="less" scoped>
-
+.world {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
 </style>
 

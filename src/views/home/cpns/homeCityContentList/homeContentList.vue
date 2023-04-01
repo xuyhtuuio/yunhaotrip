@@ -1,7 +1,6 @@
 <template>
   <div class="HomeContent">
     <div class="title">热门精选</div>
-
     <div class="content">
       <template v-for="(item, index) in citiesStore.houseList" :key="item.data.houseId">
         <Nine v-if="item.discoveryContentType === 9"
@@ -25,7 +24,6 @@ let isNext = ref(false)
 let {key} = getScroll()
 
 watch(key, (newKey) => {
-  console.log(newKey)
   if (newKey) {
     citiesStore.page++
     citiesStore.getHouseContentList().then(finish => {
@@ -37,14 +35,11 @@ watch(key, (newKey) => {
 citiesStore.getHouseContentList().then(finish => {
   console.log(finish)
 })
-
-
 </script>
 
 <style lang="less" scoped>
+
 .HomeContent {
-  //width: 300px;
-  //height: 300px;
   box-sizing: border-box;
   margin-top: 10px;
 
@@ -60,6 +55,5 @@ citiesStore.getHouseContentList().then(finish => {
     display: flex;
     flex-wrap: wrap;
   }
-
 }
 </style>
