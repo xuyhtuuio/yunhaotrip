@@ -1,36 +1,37 @@
 <template>
   <div class="TabBar">
-    <van-tabbar v-model="active">
-      <van-tabbar-item icon="home-o" @click="jumpHome(active)">
+    <van-tabbar v-model="active" route>
+      <van-tabbar-item icon="home-o" @click="jumpHome(active)"
+                       to="/home">
         <span>家</span>
         <template #icon="props">
           <img :src="props.active ?
           `/src/assets/img/tabbar/tab_home_active.png`
-          : `/src/assets/img/tabbar/tab_home.png`" />
+          : `/src/assets/img/tabbar/tab_home.png`"/>
         </template>
       </van-tabbar-item>
-      <van-tabbar-item  @click="jumpOrder(active)">
+      <van-tabbar-item @click="jumpOrder(active)" to="/order">
         <span>订单</span>
         <template #icon="props">
           <img :src="props.active ?
           `/src/assets/img/tabbar/tab_order_active.png`
-          : `/src/assets/img/tabbar/tab_order.png`" />
+          : `/src/assets/img/tabbar/tab_order.png`"/>
         </template>
       </van-tabbar-item>
-      <van-tabbar-item  @click="jumpFavor(active)">
+      <van-tabbar-item @click="jumpFavor(active)" to="/favor">
         <span>收藏</span>
         <template #icon="props">
           <img :src="props.active ?
           `/src/assets/img/tabbar/tab_favor_active.png`
-          : `/src/assets/img/tabbar/tab_favor.png`" />
+          : `/src/assets/img/tabbar/tab_favor.png`"/>
         </template>
       </van-tabbar-item>
-      <van-tabbar-item  @click="jumpMessage(active)">
+      <van-tabbar-item @click="jumpMessage(active)" to="/message">
         <span>消息</span>
         <template #icon="props">
           <img :src="props.active ?
           `/src/assets/img/tabbar/tab_message.png`
-          : `/src/assets/img/tabbar/tab_message.png`" />
+          : `/src/assets/img/tabbar/tab_message.png`"/>
         </template>
       </van-tabbar-item>
     </van-tabbar>

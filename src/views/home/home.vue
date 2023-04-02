@@ -6,17 +6,7 @@
     <HotSuggestsAndSearch/>
     <categories/>
     <div class="world" v-if="hideSearch.isHidden">
-      <van-search
-          v-model="value"
-          show-action
-          label="地址"
-          placeholder="请输入搜索关键词"
-          @search="onSearch"
-      >
-        <template #action>
-          <div @click="onClickButton">搜索</div>
-        </template>
-      </van-search>
+     <hide-search-bar/>
     </div>
     <home-content-list/>
   </div>
@@ -34,13 +24,11 @@ import Categories from "./cpns/categories/categories.vue";
 import HomeContentList from "./cpns/homeCityContentList/homeContentList.vue";
 import usehideSearch from "../../store/hideSearch.js";
 import {Toast} from "vant";
+import HideSearchBar from "../../components/hideSearchBar/hideSearchBar.vue";
 
 let useisHidden1 = useisHidden();
 let hideSearch = usehideSearch()
 useisHidden1.changeStateToAppear()
-const value = ref('');
-const onSearch = (val) => Toast(val);
-const onClickButton = () => Toast(value.value);
 
 </script>
 
@@ -51,6 +39,8 @@ const onClickButton = () => Toast(value.value);
   left: 0;
   right: 0;
   z-index: 999;
+
+  --van-search-input-height: 40px;
 }
 </style>
 

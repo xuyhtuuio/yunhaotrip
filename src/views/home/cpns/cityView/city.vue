@@ -6,7 +6,6 @@
     <div class="content">
       <router-view/>
     </div>
-
   </div>
 </template>
 
@@ -18,8 +17,6 @@ import CitySerch from "./city-search/city-serch.vue";
 import CityChoose from "./city-content/city-choose/city-choose.vue";
 import {ref} from "vue";
 import CityChooseAndSearch from "./city-content/cityChooseAndSearch.vue";
-
-
 const cityStore = useCities();
 let isHidden = useisHidden();
 
@@ -29,8 +26,6 @@ isHidden.changeStateToHidden();
 </script>
 
 <style lang="less" scoped>
-
-
 .head {
   position: relative;
   z-index: 10;

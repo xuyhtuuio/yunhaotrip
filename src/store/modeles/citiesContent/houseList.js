@@ -1,13 +1,12 @@
 import {defineStore} from "pinia";
 import getHouseList from "../../../services/modules/houseList.js";
 
-
 const useCitiesContent = defineStore("citiesContent", {
     state() {
         return {
             houseList: [],
             page: 1,
-
+            currentHouseId: null
         }
     },
     actions: {

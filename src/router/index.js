@@ -51,8 +51,11 @@ const router = createRouter({
         {
             path: "/search",
             component: () => import("../views/home/cpns/Home-search-view/home-searchview.vue")
+        },
+        {
+            path: "/specCity/:houseId",
+            component: () => import("../views/home/specificCityPage/specCity.vue")
         }
-
     ]
 })
 
