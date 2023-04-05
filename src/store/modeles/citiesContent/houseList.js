@@ -6,7 +6,8 @@ const useCitiesContent = defineStore("citiesContent", {
         return {
             houseList: [],
             page: 1,
-            currentHouseId: null
+            currentHouseId: null,
+            tagList: [],
         }
     },
     actions: {
