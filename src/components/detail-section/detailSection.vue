@@ -8,26 +8,20 @@
         <h3>我是默认内容</h3>
       </slot>
     </div>
-    <div class="footer" v-if="moreText.length">
-      <span class="more">{{ moreText }}</span>
+    <div class="footer">
+      <span class="more">更多</span>
       <van-icon name="arrow"/>
     </div>
   </div>
 </template>
 
 <script setup>
-
 defineProps({
   title: {
     type: String,
-    default: "默认标题"
-  },
-  moreText: {
-    type: String,
-    default: ""
+    default: "默认标题",
   }
 })
-
 </script>
 
 <style lang="less" scoped>

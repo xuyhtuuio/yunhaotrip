@@ -1,7 +1,7 @@
 <template>
   <div class="swip">
     <div class="outSwip">
-      <van-swipe :autoplay="3000" lazy-render :height="200" @change="onChange">
+      <van-swipe :autoplay="2000" lazy-render :height="200" @change="onChange">
         <van-swipe-item v-for="item in details.imgList" :key="item">
           <img :src="item.url"/>
         </van-swipe-item>
