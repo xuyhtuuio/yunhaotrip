@@ -8,8 +8,8 @@
     />
     <swip/>
     <intro/>
-    <detail-section/>
-    <detail-section/>
+    <facility :house-facility="faclity"/>
+    <landlord :landlord="landlord"/>
   </div>
 </template>
 
@@ -19,13 +19,23 @@ import Swip from "./cpns/swip.vue";
 import Intro from "./cpns/intro.vue";
 import DetailSection from "../../../components/detail-section/detailSection.vue";
 import useHideBar from "../../../store/modeles/hideBar.js";
+import getDetailsByHouseId from "../../../services/modules/getDetailsByHouseId.js";
+import useCitiesContent from "../../../store/modeles/citiesContent/houseList.js";
+import {ref} from "vue";
+import Facility from "./cpns/facility.vue";
+import Landlord from "./cpns/landlord.vue";
 
 let hideLoading = usehideLoading();
 let HideBar = useHideBar()
 hideLoading.inHideLoading = false
 HideBar.isNotHidden = false
-
+let faclity = ref()
+let landlord = ref()
 const onClickLeft = () => history.back();
+getDetailsByHouseId(useCitiesContent().currentHouseId).then(res => {
+  faclity.value = res.data.mainPart.dynamicModule.facilityModule.houseFacility
+  landlord.value = res.data.mainPart.dynamicModule.landlordModule
+})
 </script>
 
 <style lang="less" scoped>
