@@ -4,13 +4,13 @@ import useHideReach from "../store/hideSearch.js";
 import hideSearch from "../store/hideSearch.js";
 import {throttle} from "underscore"
 
-
 const hideReach = useHideReach();
 const citiesStore = useCitiesContent();
 export default function getScroll() {
     let clienttop = ref(0)
     let clientheightBig = ref(0)
     let disTop = 0
+    let disTop1 = 0
     let key = ref(false)
     let isShowSearch = false
 
@@ -25,23 +25,37 @@ export default function getScroll() {
     }, 100)
 
     let watchReach = throttle((event) => {
-            disTop = document.documentElement.scrollTop
-            if (disTop > 500) {
-                hideReach.isHidden = true;
-            }
-            if (disTop < 500 && disTop !== null) {
-                hideReach.isHidden = false
-            }
+        disTop = document.documentElement.scrollTop
+        if (disTop > 500) {
+            hideReach.isHidden = true;
+            hideReach.isHiddenTab = true;
         }
-        , 100)
+        if (disTop < 500 && disTop !== null) {
+            hideReach.isHidden = false
+            hideReach.isHiddenTab = false
+        }
+    }, 100)
+
+    let watchTab = throttle((event) => {
+        disTop1 = document.documentElement.scrollTop
+        if (disTop1 > 300) {
+            hideReach.isHiddenTab = true;
+        }
+        if (disTop1 < 300 && disTop !== null) {
+            hideReach.isHiddenTab = false
+        }
+    }, 100)
+
     onMounted(() => {
         window.addEventListener("scroll", watchScroll)
         window.addEventListener("scroll", watchReach)
+        window.addEventListener("scroll", watchTab)
     })
 
     onUnmounted(() => {
         window.removeEventListener("scroll", watchScroll)
         window.removeEventListener("scroll", watchReach)
+        window.removeEventListener("scroll", watchTab)
     })
     return {key}
 }

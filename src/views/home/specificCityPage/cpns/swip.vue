@@ -37,7 +37,7 @@ const indexOfType = ref(1)
 const pattern = new RegExp("[\u4E00-\u9FA5]+");
 
 getDetailsByHouseId(citiesContentStore.currentHouseId).then(res => {
-  details.imgList = [...res.data.mainPart.topModule.housePicture.housePics]
+  details.imgList = [...res.data?.mainPart.topModule.housePicture.housePics]
 
   function integrate() {
     const total = []

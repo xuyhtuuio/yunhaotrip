@@ -51,10 +51,10 @@ let comment = ref("")
 let position = ref("")
 
 getDetailsByHouseId(citiesContentStore.currentHouseId).then(res => {
-  Intro.value = res.data.mainPart.topModule.houseName;
-  tagList.value = [...res.data.mainPart.topModule.houseTags];
-  comment.value = res.data.mainPart.topModule.commentBrief;
-  position.value = res.data.mainPart.topModule.nearByPosition
+  Intro.value = res.data?.mainPart.topModule.houseName;
+  tagList.value = [...res.data?.mainPart.topModule.houseTags];
+  comment.value = res.data?.mainPart.topModule.commentBrief;
+  position.value = res.data?.mainPart.topModule.nearByPosition
   console.log(tagList.value)
   tagList.value.map(item => {
     console.log(item.tagText?.text)
