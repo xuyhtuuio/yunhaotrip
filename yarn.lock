@@ -547,6 +547,11 @@
   "resolved" "https://registry.npmmirror.com/normalize.css/-/normalize.css-8.0.1.tgz"
   "version" "8.0.1"
 
+"object-assign@>=4.0.1":
+  "integrity" "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="
+  "resolved" "https://registry.npmmirror.com/object-assign/-/object-assign-4.1.1.tgz"
+  "version" "4.1.1"
+
 "parse-node-version@^1.0.1":
   "integrity" "sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA=="
   "resolved" "https://registry.npmmirror.com/parse-node-version/-/parse-node-version-1.0.1.tgz"
@@ -580,7 +585,15 @@
     "@vue/devtools-api" "^6.5.0"
     "vue-demi" "*"
 
-"postcss@^8.1.10", "postcss@^8.4.21":
+"postcss-px-to-viewport@^1.1.1":
+  "integrity" "sha512-2x9oGnBms+e0cYtBJOZdlwrFg/mLR4P1g2IFu7jYKvnqnH/HLhoKyareW2Q/x4sg0BgklHlP1qeWo2oCyPm8FQ=="
+  "resolved" "https://registry.npmmirror.com/postcss-px-to-viewport/-/postcss-px-to-viewport-1.1.1.tgz"
+  "version" "1.1.1"
+  dependencies:
+    "object-assign" ">=4.0.1"
+    "postcss" ">=5.0.2"
+
+"postcss@^8.1.10", "postcss@^8.4.21", "postcss@>=5.0.2":
   "integrity" "sha512-tP7u/Sn/dVxK2NnruI4H9BG+x+Wxz6oeZ1cJ8P6G/PZY0IKk4k/63TDsQf2kQq3+qoJeLm2kIBUNlZe3zgb4Zg=="
   "resolved" "https://registry.npmmirror.com/postcss/-/postcss-8.4.21.tgz"
   "version" "8.4.21"
