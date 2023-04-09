@@ -1,15 +1,17 @@
 <template>
-  <div class="home">
-    <HomeNavBar src="./src/assets/img/home/banner.png"/>
-    <location_mid src="./src/assets/img/home/icon_location.png"/>
-    <home_search/>
-    <HotSuggestsAndSearch/>
-    <categories/>
-    <div class="world" v-if="hideSearch.isHidden">
-     <hide-search-bar/>
+  <keep-alive>
+    <div class="home">
+      <HomeNavBar src="./src/assets/img/home/banner.png"/>
+      <location_mid src="./src/assets/img/home/icon_location.png"/>
+      <home_search/>
+      <HotSuggestsAndSearch/>
+      <categories/>
+      <div class="world" v-if="hideSearch.isHidden">
+        <hide-search-bar/>
+      </div>
+      <home-content-list/>
     </div>
-    <home-content-list/>
-  </div>
+  </keep-alive>
 </template>
 
 <script setup>

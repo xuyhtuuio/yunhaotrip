@@ -55,26 +55,6 @@ function emitYourCity(YourChoose) {
   font-weight: bolder;
 }
 
-//
-//.hotCity {
-//  display: flex;
-//  flex-wrap: wrap;
-//  font-size: 15px;
-//  margin: 20px 30px;
-//
-//  .hot {
-//    height: 30px;
-//    width: 69px;
-//    background-color: #fff4ec;
-//    margin: 0 20px 20px;
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//    border-radius: 10px;
-//  }
-//}
-
-
 .list {
   display: flex;
   flex-wrap: wrap;

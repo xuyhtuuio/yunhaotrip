@@ -15,6 +15,7 @@
     <landlord :landlord="landlord"/>
     <comment :comment="comment"/>
     <notice :order-rules="notice"/>
+    <introduction :price-intro="introduction"/>
     <div class="footer">
       <img src="../../../assets/img/detail/icon_ensure.png" alt="">
       <div class="text">云皓旅途, 永无止境!</div>
@@ -38,6 +39,7 @@ import Notice from "./cpns/notice.vue";
 import Tabcontral from "../../../components/tabContral/tabcontral.vue";
 import useHideReach from "../../../store/hideSearch.js";
 import getScroll from "../../../hooks/getScroll.js";
+import Introduction from "./cpns/introduction.vue";
 
 //获取滚动信息
 getScroll()
@@ -52,6 +54,7 @@ let landlord = ref()
 let comment = ref()
 let intro = ref()
 let notice = ref()
+let introduction = ref()
 const onClickLeft = () => history.back();
 getDetailsByHouseId(useCitiesContent().currentHouseId).then(res => {
   faclity.value = res.data?.mainPart.dynamicModule.facilityModule.houseFacility
@@ -59,6 +62,7 @@ getDetailsByHouseId(useCitiesContent().currentHouseId).then(res => {
   comment.value = res.data?.mainPart.dynamicModule.commentModule
   intro.value = res.data?.mainPart.introductionModule
   notice.value = res.data?.mainPart.dynamicModule.rulesModule.orderRules
+  introduction.value = res.data?.mainPart.introductionModule
 })
 </script>
 

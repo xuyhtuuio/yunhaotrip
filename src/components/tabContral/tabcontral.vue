@@ -1,13 +1,7 @@
 <template>
   <div class="tab-control">
-    <!--    <van-tabs v-model:active="active">-->
-    <!--      <van-tab v-for="index in 4" :title="'标签 ' + index">-->
-    <!--&lt;!&ndash;        内容 {{ index }}&ndash;&gt;-->
-    <!--      </van-tab>-->
-    <!--    </van-tabs>-->
-    <van-tabs v-model:active="active" scrollspy sticky>
+    <van-tabs v-model:active="active">
       <van-tab v-for="item in arrTab" :title="item">
-        内容 {{ item }}
       </van-tab>
     </van-tabs>
   </div>

@@ -60,8 +60,6 @@ getDetailsByHouseId(citiesContentStore.currentHouseId).then(res => {
   }
 
   groupByType.value = integrate()
-  console.log(groupByType.value)
-
   function formatHouseType(houseType) {
     const formatedHouseType = []
     houseType.toString().split("").map((item, index) => {
