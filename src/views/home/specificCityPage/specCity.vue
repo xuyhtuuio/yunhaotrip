@@ -1,8 +1,8 @@
 <template>
   <div class="specCity">
-    <div class="tab-control" v-if="hideReach.isHiddenTab">
-      <tabcontral/>
-    </div>
+    <!--    <div class="tab-control" v-if="hideReach.isHiddenTab">-->
+    <!--      <tabcontral/>-->
+    <!--    </div>-->
     <van-nav-bar
         title="眼光 不错"
         left-text="返回"
